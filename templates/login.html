@@ -1,0 +1,32 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<body>
+
+    {% if data %}
+        <h1>Try again</h1>
+    {% endif %}
+    <center> <h1> Login Form </h1> </center>
+    <form action="log" method="post">
+        {% csrf_token %}
+        <div class="container" align="center">
+            <label id="label"></label>
+            <input type="radio" value="manager" name="option" id="associManager">&nbsp;AssociationManager&nbsp;&nbsp;&nbsp;
+            <input type="radio" value="member" name="option" id="associMem">&nbsp;AssociationMember&nbsp;&nbsp;&nbsp;
+            <input type="radio" value="owner" name="option" id="owner">&nbsp;Owner&nbsp;&nbsp;&nbsp;
+            <input type="radio" value="tenant" name="option" id="tenant"> &nbsp;Tenant&nbsp;&nbsp;&nbsp;
+            <input type="radio" value="security" name="option" id="security">&nbsp;Security<br>
+            <label>Username: </label>
+            <input type="text" placeholder="Enter Username" name="txtname" required><br>
+            <label>Password: </label>
+            <input type="password" placeholder="Enter password" name="txtpswd" required><br>
+            <input type="submit" value="Login">   <br>
+            <input type="checkbox" checked="checked"> Remember me
+            Forgot <a href="{% url 'forpswd' %}"> password? </a>
+        </div>   
+    </form>
+</body>
+{% endblock %}

@@ -1,0 +1,17 @@
+tr,td,th{
+text-align: center;
+height: 50px;
+font-size:20px;
+}
+th{
+background-color: #04AA6D;
+font-size:15px;
+}
+td{
+background-color: #f2f2f2;
+padding:2px;
+}
+table{
+border-spacing: 15px 50px;
+
+}

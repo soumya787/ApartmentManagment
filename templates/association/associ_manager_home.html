@@ -1,0 +1,33 @@
+{% extends 'navbar/ass_man_navbar.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'css/manager.css' %}" rel="stylesheet">
+<body>
+<h1>welcome to Association manager page</h1>
+<div id="div1">
+    <label>Add new owner tenant Member</label><br>
+    <a href="{% url 'ownerpage' %}">Go--></a>
+</div>
+<div id="div2">
+    <label>Get All Associate Members</label><br>
+    <a href="{% url 'associmember' %}">Go--></a>
+</div>
+<div id="div3">
+    <label>View Service Request</label><br>
+    <a href="">Go--></a>
+</div>
+<div id="div4">
+    <label>Get All Visitors</label><br>
+    <a href="">Go--></a>
+</div>
+<div id="div5">
+    <label>Manage Amenities</label>
+    <a href="{% url 'manageamenities' %}">Go--></a>
+</div>
+<div id="div6">
+    <label>All Owner and Tenant</label>
+    <a href="{% url 'getowner' %}">Go--></a>
+</div>
+</body>
+
+{% endblock %}

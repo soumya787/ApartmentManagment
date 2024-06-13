@@ -1,0 +1,37 @@
+{% extends 'navbar/ass_man_navbar.html' %}
+
+{% block content %}
+<h2 align="center">Booked Amenetie</h2>
+<table align="center" class="table">
+    <tr>
+        <th>MemberName</th>
+        <th>Block</th>
+        <th>FlatNo</th>
+        <th>Date</th>
+        <th>Booked for</th>
+        <th>Time Slot</th>
+        <th>Status</th>
+        <th>Update Status</th>
+    </tr>
+    {% for i in booking %}
+    <form action="{% url 'upamenite' i.id %}" method="post">
+        {% csrf_token %}
+        <tr>
+            <td><input type="text" name="txtName" value="{{i.memberid}}"></td>
+            <td>{{i.memberid.block}}</td>
+            <td>{{i.memberid.flatnum}}</td>
+            <td><input type="text" name="txtDate" value="{{i.ondate}}" disabled><input type="date" name="txtDate" value="{{i.ondate}}"></td>
+            <td><input type="text" name="txtBookFor" value="{{i.bookedforid}}"></td>
+            <td><input type="text" name="txtTime" value="{{i.ontimeid}}"></td>
+            <td>
+                <select name="ddlstatus">
+                <option selected>{{i.status}}</option>
+                <option>Confirm</option>
+                </select>
+            </td>
+            <td><input type="submit" name="btnSub" value="UpdateStatus"></td>
+        </tr>
+    </form>
+    {% endfor %}
+</table>
+{% endblock %}

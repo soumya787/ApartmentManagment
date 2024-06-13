@@ -1,0 +1,72 @@
+{% extends 'navbar/owner_tenant.html' %}
+
+{% block content %}
+
+<div style="float:center">
+    <h2 align="center">Adding Regular Visitors</h2>
+    <form action="addvisitor" method="post">
+        {% csrf_token %}
+        <table align="center" style="" >
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="txtName"></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="number" name="txtAge"></td>
+        </tr>
+        <tr>
+            <td>Cell:</td>
+            <td><input type="number" name="txtCell"></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><input type="text" name="txtAddress"></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <input type="radio" name="gender" value="2">Male
+                <input type="radio" name="gender" value="1">Female
+            </td>
+        </tr>
+        <tr>
+            <td>Relation:</td>
+            <td>
+                <select name="ddlRelation">
+                    <option>--select---</option>
+                    {% for i in relation %}
+                    <option>{{i.relation_type}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="btnSub" value="Add Visitor"></td>
+        </tr>
+
+    </table>
+    </form>
+</div>
+<div>
+    <h2 align="center">Details of Visitors</h2>
+    <table border="2" class="table">
+        <tr>
+            <th>Name</th>
+            <th>Cell</th>
+            <th>Relation</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {% for i in visitor %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.cell }}</td>
+                <td>{{ i.relation }}</td>
+                <td><a href="{% url 'updatevisitor' i.id %}">Update</a></td>
+                <td><a href="{% url 'deletevisitor' i.id %}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

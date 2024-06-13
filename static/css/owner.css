@@ -1,0 +1,33 @@
+#div1{
+   border: 300px;
+  text-align: center;
+  padding: 20px;
+   background-color:lightblue;
+}
+tr,td{
+width:150px;
+text-align:center;
+padding:5px
+}
+input{
+margin-bottom:2px;
+}
+#div3,#div2{
+    width:50%;
+    float:left;
+    padding: 40px;
+    border: 100px;
+    vertical-align: middle;
+    border:2px;
+}
+input[type=text],input[type=email],input[type=number],textarea,{
+ width:200px;
+}
+input[type=submit]{
+width:200px;
+padding:20px;
+font-size:20px;
+}
+select{
+width:180px;
+}

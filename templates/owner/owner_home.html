@@ -1,0 +1,36 @@
+{% extends 'navbar/owner_tenant.html' %}
+{% load static %}
+{% block content %}
+
+<link href="{% static 'css/manager.css'%}" rel="stylesheet">
+
+<h2 align="center">Welcome {{ data }}</h2>
+
+    <div id="div1">
+        <label>Add regular visitor</label><br>
+
+        <a href="{% url 'visitor' %}">--GO--</a>
+
+    </div>
+    <div id="div2">
+        <label>View Family Member</label><br>
+        <a href="{% url 'viewfamily' getdata %}">--GO--</a>
+    </div>
+    <div id="div3">
+        <label>Complain Service Request</label><br>
+        <a href="">--GO--</a>
+    </div>
+    <div id="div4">
+        <label>Get Tenant Details</label><br>
+        <a href="{% url 'gettenant' %}">--GO--</a>
+    </div>
+    <div id="div5">
+        <label>Book Amenities</label><br>
+        <a href="{% url 'bookAmenities' %}">--GO--</a>
+    </div>
+    <div id="div6">
+        <label>View all booked details</label>
+        <a href="{% url 'seeamenite' %}">--GO--</a>
+    </div>
+
+{% endblock %}

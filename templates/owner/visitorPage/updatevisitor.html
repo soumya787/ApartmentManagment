@@ -1,0 +1,57 @@
+{% extends 'navbar/owner_tenant.html' %}
+
+{% block content %}
+
+<div style="float:center">
+    <h2 align="center">Adding Regular Visitors</h2>
+    <form method="post">
+        {% csrf_token %}
+        <table align="center" style="" >
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="txtName" value="{{ visitor.name }}"></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="number" name="txtAge" value="{{visitor.age}}"></td>
+        </tr>
+        <tr>
+            <td>Cell:</td>
+            <td><input type="number" name="txtCell" value="{{visitor.cell}}"></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><input type="text" name="txtAddress" value="{{visitor.addresss}}"></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                {% if visitor.gender_id == 1 %}
+                    <input type="radio" name="gender" value="2">Male
+                    <input type="radio" name="gender" value="1" checked>Female
+                {% else %}
+                    <input type="radio" name="gender" value="2" checked>Male
+                    <input type="radio" name="gender" value="1" >Female
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Relation:</td>
+            <td>
+                <select name="ddlRelation">
+                    <option selected>{{visitor.relation}}</option>
+                    {% for i in relation %}
+                    <option>{{i.relation_type}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="btnSub" value="Update Visitor"></td>
+        </tr>
+
+    </table>
+    </form>
+</div>
+
+{% endblock %}

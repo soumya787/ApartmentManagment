@@ -1,0 +1,17 @@
+#div1,#div3,#div4,#div5,#div2,#div6{
+     border: 5px outset red;
+   background-color: lightblue;
+   text-align: center;
+   width:400px;
+   float:left;
+   padding:30px;
+   margin:10px;
+}
+
+#div4,#div5,#div6{
+    padding:30px;
+}
+#div3
+{
+padding:30px;
+}

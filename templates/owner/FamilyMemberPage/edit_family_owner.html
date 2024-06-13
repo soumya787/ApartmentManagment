@@ -1,0 +1,56 @@
+{% extends 'navbar/owner_tenant.html' %}
+{% block content %}
+<h2>Add Family Member</h2>
+<form method="post">
+    <input type="text" name="txtid" hidden value="{{ data.memberid_id }}">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="txtName" value="{{ data.name }}"></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="text" name="txtAge" value="{{ data.age }}"></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+               {% if data.gender_id == 1 %}
+                            <input type="radio" name="gender" value="1" checked>&nbsp;Female&nbsp;&nbsp;
+                            <input type="radio" name="gender" value="2">&nbsp;Male&nbsp;&nbsp;
+                {% else %}
+                            <input type="radio" name="gender" value="1" >&nbsp;Female&nbsp;&nbsp;
+                            <input type="radio" name="gender" value="2" checked>&nbsp;Male&nbsp;&nbsp;
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Cell:</td>
+            <td>
+                <input type="text" name="txtCell" pattern="[6-9]{1}[0-9]{9}" value="{{ data.cell }}">
+            </td>
+        </tr>
+        <tr>
+            <td>Relation:</td>
+            <td>
+                <select name="ddlRelation">
+                    <option selected>{{ data.relation }}</option>
+                    <option>Father</option>
+                    <option>Mother</option>
+                    <option>Brother</option>
+                    <option>Sister</option>
+                    <option>Wife</option>
+                    <option>Daughter</option>
+                    <option>Son</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="ADD">
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

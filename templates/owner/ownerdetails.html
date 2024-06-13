@@ -1,0 +1,44 @@
+{% extends 'navbar/ass_man_navbar.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'css/ownerdata.css' %}" rel="stylesheet">
+<h1 align="center">Owner and Tenant Details</h1>
+<table border="1" class="table" align="center" style="padding:10px;border-color:blue;width:100%">
+    <tr>
+        <th>FirstName</th>
+        <th>SecondName</th>
+        <th>Age</th>
+        <th>CellNo</th>
+        <th>Email</th>
+        <th>Occupation</th>
+        <th>Company</th>
+        <th>OfficeAddress</th>
+        <th>RegisteredDate</th>
+        <th>Block</th>
+        <th>FlatNum</th>
+        <th>MemberType</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for i in data %}
+
+    <tr>
+        <td>{{ i.fname }}</td>
+        <td>{{ i.lname }}</td>
+        <td>{{ i.age }}</td>
+        <td>{{ i.cell }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.occupation }}</td>
+        <td>{{ i.company }}</td>
+        <td>{{ i.officeaddress }}</td>
+        <td>{{ i.ondate }}</td>
+        <td>{{ i.block }}</td>
+        <td>{{ i.flatnum }}</td>
+        <td>{{ i.membertype }}</td>
+        <td><a href="{% url 'editowner' i.id %}">Edit</a></td>
+        <td><a href="{% url 'deleteowner' i.id %}">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

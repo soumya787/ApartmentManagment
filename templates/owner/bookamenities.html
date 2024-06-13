@@ -1,0 +1,66 @@
+{% extends 'navbar/owner_tenant.html' %}
+
+{% block content %}
+<style>
+    td{
+         padding: 5px;
+         font-size:20px;
+         color:Orange;
+    }
+    input,select{
+    color:black;
+    }
+</style>
+<h2 align="center" style="color:Blue">Book Amenities</h2>
+<form action="bookAmenities" method="post">
+     {% csrf_token %}
+    <table align="center" width="300px">
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="txtName" value="{{owner.fname}}"></td>
+        </tr>
+        <tr>
+            <td>Cell:</td>
+            <td><input type="number" name="txtPhn" value="{{owner.cell}}"></td>
+        </tr>
+        <tr>
+            <td>Block:</td>
+            <td><input type="text" name="txtBlock" value="{{owner.block}}"></td>
+        </tr>
+        <tr>
+            <td>FlatNo:</td>
+            <td><input type="text" name="txtFlat" value="{{owner.flatnum}}"></td>
+        </tr>
+        <tr>
+            <td>BookFor:</td>
+            <td>
+                <select name="ddlAmenite">
+                    <option>--select Amenite---</option>
+                    {% for i in amenite %}
+                        <option>{{i.bookedfor}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Date:</td>
+            <td><input type="date" name="txtDate"></td>
+        </tr>
+        <tr>
+            <td>Time:</td>
+            <td>
+                <select name="ddlTime">
+                    <option>--select time slot---</option>
+                    {% for i in time %}
+                        <option>{{i.ontime}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="btnSub" value="Book"></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}

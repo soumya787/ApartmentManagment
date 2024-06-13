@@ -1,0 +1,112 @@
+{% extends 'navbar/ass_man_navbar.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'css/owner.css' %}" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
+<h1 align="center">Owner Registration</h1>
+<form  method="post">
+    {% csrf_token %}
+    <div id="div1">
+        <div id="div2">
+            <table align="center" style="padding:5px;" >
+                <tr>
+                    <td><label>FirstName:</label></td>
+                    <td><input type="text" name="txtfname" placeholder="enter firstname" value="{{x.fname}}"></td>
+                </tr>
+                <tr>
+                    <td><label>LastName:</label></td>
+                    <td><input type="text" name="txtlname" placeholder="enter lastname" value="{{ x.lname }}"></td>
+                </tr>
+                <tr>
+                    <td><label>Age:</label></td>
+                    <td><input type="text" name="txtage" placeholder="enter age" value="{{ x.age }}"></td>
+                </tr>
+                <tr>
+                    <td><label>Gender:</label></td>
+                    <td>
+                        {% if x.gender_id == 1 %}
+                            <input type="radio" name="gender" value="1" checked>&nbsp;Female&nbsp;&nbsp;
+                            <input type="radio" name="gender" value="2">&nbsp;Male&nbsp;&nbsp;
+                        {% else %}
+                            <input type="radio" name="gender" value="1" >&nbsp;Female&nbsp;&nbsp;
+                            <input type="radio" name="gender" value="2" checked>&nbsp;Male&nbsp;&nbsp;
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Email:</label></td>
+                    <td><input type="email" name="txtemail" placeholder="enter email" value="{{x.email}}"></td>
+                </tr>
+                <tr>
+                    <td><label>Cell:</label></td>
+                    <td><input type="number" name="txtphn" placeholder="enter phno" value="{{x.cell}}"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="div3">
+            <table align="center" style="padding:5px;" >
+                <tr>
+                    <td><label>Marital Status:</label></td>
+                    <td>
+                        {% if x.martial_status_id == 1 %}
+                            <input type="radio" name="marital" value="1" checked >&nbsp;Married&nbsp;&nbsp;
+                            <input type="radio" name="marital" value="2">&nbsp;Unmarried&nbsp;&nbsp;
+                        {% else %}
+                             <input type="radio" name="marital" value="1">&nbsp;Married&nbsp;&nbsp;
+                            <input type="radio" name="marital" value="2" checked>&nbsp;Unmarried
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Occupation:</label></td>
+                    <td><input type="text" name="txtocc" placeholder="enter occupation" value="{{x.occupation}}"></td>
+                </tr>
+                <tr>
+                    <td><label>Company:</label></td>
+                    <td><input type="text" name="txtCom" placeholder="enter Company" value="{{x.company}}"></td>
+                </tr>
+                <tr>
+                    <td><label>Office Address:</label></td>
+                    <td><textarea rows = "2" cols = "60" name = "addresss" style="width:180px;height: 29px;" >{{x.officeaddress}}</textarea></td>
+                </tr>
+                <tr>
+                    <td><label>Block:</label></td>
+                    <td>
+                        <select name="blocks">
+                            <option selected>{{x.block}}</option>
+                            <option value="1">Block A</option>
+                            <option value="2">Block B</option>
+                            <option value="3">Block C</option>
+                            <option value="4">Block D</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>FlatNo:</label></td>
+                    <td><input type="text" name="txtflatno" placeholder="enter flatno" value="{{x.flatnum}}"></td>
+                </tr>
+                <tr>
+                    <td><label>MemberType:</label></td>
+                    <td>
+                        {% if x.membertype_id == 1 %}
+                            <input type="radio" name="member" value="1" checked>&nbsp;Owner&nbsp;&nbsp;
+                            <input type="radio" name="member" value="2">&nbsp;Tenant&nbsp;&nbsp;
+                        {% else %}
+                            <input type="radio" name="member" value="1">&nbsp;Owner&nbsp;&nbsp;
+                            <input type="radio" name="member" value="2" checked>&nbsp;Tenant&nbsp;&nbsp;
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="div4">
+           <table align="center" style="padding:5px;" >
+                <tr>
+                    <td><input type="submit" value="update"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</form>
+{% endblock %}}

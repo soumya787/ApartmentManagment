@@ -1,0 +1,26 @@
+{% extends 'navbar/owner_tenant.html' %}
+
+{% block content %}
+
+<h1 align="center">Tenant Details </h1>
+
+<table class="table" border="2" style="font-size:30px">
+    <tr>
+        <th>Tenant Name</th>
+        <th>Tennat Phno</th>
+        <th>Tenant Occupation</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for i in getdata %}
+    <tr>
+        <td>{{ i.fname }}</td>
+        <td>{{ i.cell }}</td>
+        <td>{{ i.occupation }}</td>
+        <td><a href="{% url 'editowner' i.id %}">Edit</a></td>
+        <td><a href="{% url 'deleteowner' i.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

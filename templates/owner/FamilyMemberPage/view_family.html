@@ -1,0 +1,32 @@
+{% extends 'navbar/owner_tenant.html' %}
+
+{% block content %}
+<input type="text"  name="txtid" value="{{ x.id }}" hidden>
+<h1 align="center"> Family Member list</h1>
+<table border="1" align="center" class="table" style="font-size:20px">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Relation</th>
+        <th>CellNO</th>
+        <th>Edit/Delete</th>
+    </tr>
+    {% for i in y %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.relation}}</td>
+        <td>{{i.cell}}</td>
+        <td>
+            <a href="{% url 'edit_owner' i.id %}">Edit</a>
+            <a href="{% url 'delete_owner' i.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+    <div style="float:right;width:800px" align="center">
+        <a href="{% url 'addfamily' x %}" style="font-size:40px;border:2px dotted black">Add member</a>
+    </div>
+
+{% endblock %}

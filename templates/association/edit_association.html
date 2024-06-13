@@ -1,0 +1,37 @@
+{% extends 'navbar/ass_man_navbar.html' %}
+
+{% block content %}
+ <form method="post">
+    <div id="div1">
+        <h1 align="center">Adding Association Mmeber</h1>
+        <table align="center" style="padding:5px;" >
+                    <tr>
+                        <td><label>Name:</label></td>
+                        <td>
+                                {% csrf_token %}
+                            <select name="txtfname">
+                                <option selected>{{ data.fname }}</option>
+                                {% for i in get_owner %}
+                                    <option value="{{ i.fname }}">{{ i.fname }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Designation:</label></td>
+                        <td>
+                            <select name="desig">
+                                <option selected>{{ data.desig_name}}</option>
+                                <option value="1">AssociationHead</option>
+                                <option value="2">AssociationMember</option>
+                                <option value="3">BlockinCharge</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Add"></td>
+                    </tr>
+                </table>
+    </div>
+ </form>
+{% endblock %}

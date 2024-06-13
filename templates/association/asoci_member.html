@@ -1,0 +1,29 @@
+{% extends 'navbar/ass_man_navbar.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'css/ownerdata.css' %}" rel="stylesheet">
+<h1 align="center">Association Member List</h1>
+<table border="2" align="center" class="table" style="font-size:20px;">
+  <tr>
+    <th>MemberName</th>
+    <th>Email</th>
+    <th>Designation</th>
+    <th>Edit/Delete</th>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{ i.fname }}</td>
+    <td> {{ i.email }}</td>
+    <td>{{ i.desig_name }}</td>
+    <td>
+      <a href="{% url 'updateasssoci' i.id %}">Edit</a>
+      <a href="{% url 'deleteassoci' i.id %}">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+<div id="div1" align="center" padding="20px"
+     style="padding: 7px 40px 7px 40px; ">
+  <a href="{% url 'addmem' %}"><button value="Add Association member">Add Association member</button></a>
+</div>
+{% endblock %}
